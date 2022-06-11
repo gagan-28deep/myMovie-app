@@ -16,6 +16,7 @@ function Trending() {
       setMovies([...data.results])
     } , [currPage])
 
+    // Sir here pagination one. in handle left and handle Right
     const handleLeft = ()=>{
       if(currPage!=1){
         setCurrPage(currPage - 1)

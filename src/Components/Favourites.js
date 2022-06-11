@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import { movies } from "./GetMovies";
+import { movies } from "./GetMovies";
 function Favourites() {
   let [genre, setGenre] = useState([]);
-  let [currGenre, setCurrGenre] = useState("All Genres");
+  let [currGenre, setCurrGenre] = useState("All genres");
   let [movies, setMovies] = useState([]);
   let [currText, setCurrText] = useState("");
   let [limit, setLimit] = useState(5);
@@ -40,6 +40,7 @@ function Favourites() {
     temp.unshift("All genres");
     setGenre([...temp]);
     setMovies([...data]);
+
   } , []);
 
   let genreids = {
@@ -90,7 +91,7 @@ function Favourites() {
   let ei = (si) + (limit)
   filterArr = filterArr.slice(si , ei)
 
-  const handleChangeGenre = () => {
+  const handleChangeGenre = (genre) => {
     setCurrGenre(genre);
   };
 
@@ -244,7 +245,7 @@ function Favourites() {
                         <td>
                           <button
                             type="button"
-                            class="btn btn-danger"
+                            className="btn btn-danger"
                             onClick={() => handleDelete(movieObj.id)}
                           >
                             Delete
